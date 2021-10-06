@@ -1,11 +1,26 @@
-function handler(m) {
-  m.reply('Chat if its important, please dont spam.')
-  this.sendContact(m.chat, global.owner[0], this.getName(global.owner[0] + '@s.whatsapp.net'), m)
-  this.sendContact(m.chat, '919539102851@s.whatsapp.net', 'ANIRUDH', m)
+let PhoneNumber = require('awesome-phonenumber')
+let handler  = async (m, { conn, usedPrefix }) => {
+  conn.reply(m.chat, `
+━━❰ *･Bot🤖Mods･* ❱━━
+*1| Tor II.*
+https://wa.me/+918709022955
+*2| Das-kUN*
+https://wa.me/+919832361550
+━━❰ *Cara* ❱━━
+`.trim(), m)
 }
-handler.help = ['owner', 'creator']
-handler.tags = ['info']
+handler.help = ['mods']
+handler.tags = ['main']
+handler.command = /^(mods)$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
 
-handler.command = /^(owner|creator)$/i
+handler.admin = false
+handler.botAdmin = false
 
-module.exports = handler
+handler.fail = null
+
+module.exports = 

@@ -98,6 +98,12 @@ Info : Get answer of your expression
 •Namaninja <text>
 *Info*: Convart names into ninja names
 
+•google <text>
+*Info*: Get information about the given topic
+
+•ss <link>
+*Info*: Get the screenshot of that website
+
 
 ━━❰･Bot🇯🇵Weeb･❱━━
 

@@ -1,7 +1,7 @@
 let PhoneNumber = require('awesome-phonenumber')
 let handler  = async (m, { conn, usedPrefix }) => {
   conn.reply(m.chat, `
-👋*Hello, I am Tadashi I am here to help you* 💐
+👋 *Hello*, *I am Cara I am here to help you* 💐
 
 •prefix !
 
@@ -125,7 +125,7 @@ Info : Get answer of your expression
 •wallpaperanime
 *Info*: Get random anime wallpaper 
 
-• haigusha {not working}
+• haigusha
 *Info*: Random anima character will pop up and you have to guess the name after 60 sec the character info will expose 
 
 • ameme
@@ -180,8 +180,6 @@ Info : Get answer of your expression
 
 ━━❰･Bot🎎Reaction･❱━━
 
-*Not working now*
-
 •punch 
 *Info*: Get a punch sticker 
 
@@ -203,25 +201,9 @@ Info : Get answer of your expression
 •hug
 *Info*: Get a hug sticker
 
-•bite
-*Info*: Get a bite sticker
-
-•highfive
-*Info*: Get a highfive sticker
-
 •cry
 *Info*: Get a cry sticker
-
-•cuddle
-*Info*: Get a cuddle sticker      
-
-•dance
-*Info*: Get a dance sticker
-
-•bonk
-*Info*: Get a bonk sticker  
-
-
+  
 *I hope you are enjoying the bot if you see any bug please report use by using !bug*
 
 

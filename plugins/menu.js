@@ -104,10 +104,10 @@ sticker
 •wiki <text>
 *Info*: Get info from wiki
 
-•google text> 
+•google <text> 
 *Info*: Get info from google
 
-•gimg text> 
+•gimg <text> 
 *Info*: Get img from google
 
 •weather <place> 
@@ -170,6 +170,12 @@ sticker
 
 •revoke
 *Info*: Reset the group link
+
+•tagall
+*Info*: Tag all members 
+
+•trigger
+*Info*: Get a trigger sticker
 
 
 ━━❰･Bot🀄Media･❱━━

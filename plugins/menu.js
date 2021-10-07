@@ -110,6 +110,9 @@ sticker
 •gimg text> 
 *Info*: Get img from google
 
+•weather <place> 
+*Info*: Get weather info of your place
+
 ━━❰･Bot🇯🇵Weeb･❱━━
 
 •waifu

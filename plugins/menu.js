@@ -90,20 +90,25 @@ sticker
 *Info*: Create two sentence into readmore form
 
 •calc <expression>
-Info : Get answer of your expression
+*Info8 : Get answer of your expression
 
 •enable/disable <function>
 *Info*: Enable antilink,welcome,autolevel,etc....
 
-•Namaninja <text>
+•nameninja <text>
 *Info*: Convart names into ninja names
 
 •google <text>
 *Info*: Get information about the given topic
 
-•ss <link>
-*Info*: Get the screenshot of that website
+•wiki <text>
+*Info*: Get info from wiki
 
+•google text> 
+*Info*: Get info from google
+
+•gimg text> 
+*Info*: Get img from google
 
 ━━❰･Bot🇯🇵Weeb･❱━━
 

@@ -1,14 +1,14 @@
 const translate = require('translate-google-api')
 const defaultLang = 'en'
-const tld = 'en'
+const tld = 'cn'
 
 let handler = async (m, { args, usedPrefix, command }) => {
     let err = `
-EXAMPLE:
+Contoh:
 ${usedPrefix + command} <lang> [text]
 ${usedPrefix + command} id your messages
 
-List of supported languages: https://cloud.google.com/translate/docs/languages
+Daftar bahasa yang didukung: https://cloud.google.com/translate/docs/languages
 `.trim()
 
     let lang = args[0]

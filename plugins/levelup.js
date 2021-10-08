@@ -28,13 +28,13 @@ let handler = async (m, { conn, usedPrefix }) => {
     if (before !== user.level) {
       let rank = 'https://images.wallpaperscraft.com/image/single/girl_shell_hare_167320_300x168.jpg'
         {
-          await conn.sendButtonImg(m.chat, await (await fetch(rank)).buffer(), `${name} Level Up!\n_${before}_ -> ${user.level}`.trim(), '© Eva', 'AUTO LEVEL UP', `${usedPrefix}on autolevelup`, m)
+          await conn.sendButtonImg(m.chat, await (await fetch(rank)).buffer(), `${name} Level Up!\n_${before}_ -> ${user.level}`.trim(), '© Cara', 'AUTO LEVEL UP', `${usedPrefix}on autolevelup`, m)
         }
     }
   }
 }
 
-handler.help = ['levelup']
+handler.help = ['level']
 handler.tags = ['xp']
 
 handler.command = /^levelup$/i

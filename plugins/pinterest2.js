@@ -5,7 +5,7 @@ let handler = async(m, { conn, text, usedPrefix, command }) => {
     m.reply(global.wait)
     if (!res.ok) throw await res.text()
     let json = await res.json()
-    // let img = `${json.image}`
+    let img = `${json.image}`
     let itsuki = `
 Pinterest!
 Query: ${text}

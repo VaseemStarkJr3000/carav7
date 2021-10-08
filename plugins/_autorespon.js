@@ -15,11 +15,11 @@ handler.all = async function (m, { isBlocked }) {
         if (m.mentionedJid.includes(this.user.jid) && m.isGroup) {
             await this.send2Button(m.chat,
                 isBanned ? 'Eva is not active' : banned ? 'you are banned' : 'Eva here',
-                '© Eva',
-                isBanned ? 'Unban' : banned ? 'Bot Owner' : 'Menu',
-                isBanned ? '.unban' : banned ? '.owner' : '.?',
+                '© Cara',
+                isBanned ? 'Unban' : banned ? 'Bot rules' : 'Menu',
+                isBanned ? '.unban' : banned ? '!rules' : '.?',
                 m.isGroup ? 'Ban' : isBanned ? 'Unban' : 'Support',
-                m.isGroup ? '.ban' : isBanned ? '.unban' : '.owner', m)
+                m.isGroup ? '.ban' : isBanned ? '.unban' : '!rules', m)
         }
     } catch (e) {
         return
@@ -28,12 +28,14 @@ handler.all = async function (m, { isBlocked }) {
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Open this link')) && !m.isBaileys && !m.isGroup) {
         this.sendButton(m.chat, `┌〔 Invite Bots to Group 〕
-├ 
-├ 
-└────
 
-https://github.com/SudoAnirudh/_E-V-A_
-`.trim(), '© Eva', 'Bot Owner', ',owner', m)
+🎗 *Cara.note* 🎗
+_If you want to add the bot then contact the owner_ ✨  wa.me/919832361550  *{prefix- !}*
+
+Here is the official group link 
+https://chat.whatsapp.com/ImEZ4eg3YPHK6XvHcNJo7O
+
+`.trim(), '© Cara', 'Bot Owner', ',owner', m)
     }
 
 
@@ -57,7 +59,7 @@ https://github.com/SudoAnirudh/_E-V-A_
     if (new Date() * 1 - setting.status > 1000) {
         let _uptime = process.uptime() * 1000
         let uptime = clockString(_uptime)
-        await this.setStatus(`Active during ${uptime} | Mode: ${global.opts['self'] ? 'Private' : setting.groupOnly ? 'Group Only' : 'Public'} | Eva by Anirudh`).catch(_ => _)
+        await this.setStatus(`Active during ${uptime} | Mode: ${global.opts['self'] ? 'Private' : setting.groupOnly ? 'Group Only' : 'Public'} | Cara from Quantum world`).catch(_ => _)
         setting.status = new Date() * 1
     }
 

@@ -1,35 +1,37 @@
-let PhoneNumber = require('awesome-phonenumber')
+let { MessageType } = require('@adiwajshing/baileys')
+let fs = require('fs')
+let chalk = require('chalk')
+let fetch = require('node-fetch');
 let levelling = require('../lib/levelling')
+const { createHash } = require('crypto')
+let path = require('path')
 let handler = async (m, { conn, usedPrefix }) => {
-  let pp = './src/error404'
-  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
+  let pp = './src/avatar_contact.png'
   try {
-    pp = await conn.getProfilePicture(who)
+    pp = await conn.getProfilePicture(m.sender)
   } catch (e) {
 
   } finally {
-    let about = (await conn.getStatus(who).catch(console.error) || {}).status || ''
-    let { name, limit, exp, lastclaim, registered, regTime, age, level, role } = global.db.data.users[who]
+    let name = m.fromMe ? conn.user : conn.contacts[m.sender]
+    let { exp, limit, level, role } = global.DATABASE.data.users[m.sender]
     let { min, xp, max } = levelling.xpRange(level, global.multiplier)
-    let username = conn.getName(who)
-    let math = max - xp
-    let prem = global.prems.includes(who.split`@`[0])
-    let str = `
-Name: ${username} ${registered ? '(' + name + ') ': ''}(@${who.replace(/@.+/, '')})${about ? '\nAbout: ' + about : ''}
-Number: ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
-Link: https://wa.me/${who.split`@`[0]}${registered ? '\nAge: ' + age : ''}
-XP: TOTAL ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Ready to *${usedPrefix}levelup*` : `${math} XP left to levelup`}]
-Level: ${level}
-Role: *${role}*
-Limit: ${limit}
-Registered: ${registered ? 'Yes (' + new Date(regTime) + ')': 'No'}
-Premium: ${prem ? 'Yes' : 'No'}${lastclaim > 0 ? '\nLast Claim: ' + new Date(lastclaim) : ''}
+    let sn = createHash('md5').update(m.sender).digest('hex')
+      let str = `
+Name: ${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])} (@${m.sender.replace(/@.+/, '')})
+Number: +${m.sender.split`@`[0]}
+Link: https://wa.me/${m.sender.split`@`[0]}
+SN: ${sn}
+${readMore}
+\n\n*Mau nge check isi inventorymu? Ketik ${usedPrefix}inv*
 `.trim()
-    let mentionedJid = [who]
+    let mentionedJid = [m.sender]
     conn.sendFile(m.chat, pp, 'pp.jpg', str, m, false, { contextInfo: { mentionedJid }})
   }
 }
-handler.help = ['profile [@user]']
-handler.tags = ['tools']
-handler.command = /^profile$/i
+handler.help = ['profile']
+handler.tags = ['rpg']
+handler.command = /^(profile|profil|pp|propile|propil)$/i
 module.exports = handler
+
+const more = String.fromCharCode(8206)
+const readMore = more.repeat(4001)

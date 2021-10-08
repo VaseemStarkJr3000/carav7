@@ -1,9 +1,10 @@
 let PhoneNumber = require('awesome-phonenumber')
 let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix }) => {
+  let pp = './src/error404'
   let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   try {
-    let pp = await conn.getProfilePicture(who)
+    pp = await conn.getProfilePicture(who)
   } catch (e) {
 
   } finally {

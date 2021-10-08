@@ -1,7 +1,7 @@
 let fetch = require('node-fetch')
 let handler = async(m, { conn, text }) => {
   if (!text) throw `Enter a query!`
-  let res = await fetch(global.API('http://zekais-api.herokuapp.com/pokemon?query=', { q: text }))
+  let res = await fetch(global.API('http://zekais-api.herokuapp.com/pokemon?query={ q: text }))
   if (!res.ok) throw await res.text()
   let json = await res.json()
   let { title, gender, species, baseExp, height, weight, image } = json.results[0]

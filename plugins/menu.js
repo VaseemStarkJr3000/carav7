@@ -5,7 +5,7 @@ let handler  = async (m, { conn, usedPrefix }) => {
 
 •prefix !
 
-━━❰･Bot🤖Side･❱━━
+― ⌞ 🇧‌🇴‌🇹‌ ⌝ ―
 
 •help
 *Info*: Get the command list 
@@ -56,7 +56,7 @@ let handler  = async (m, { conn, usedPrefix }) => {
 *Info*: Get the rules of the bot
 
 
-━━❰･Bot🕹Utils･❱━━
+― ⌞ 🇻‌🇹‌🇮‌🇱‌🇸‌ ⌝ ―
 
 •sticker 
 *Info*: Convart img/vid in sticker 
@@ -113,7 +113,7 @@ sticker
 •weather <place> 
 *Info*: Get weather info of your place
 
-━━❰･Bot🇯🇵Weeb･❱━━
+― ⌞ 🇦‌🇳‌🇮‌🇲‌🇪‌ ⌝ ―
 
 •waifu
 *Info*: Get random waifu image
@@ -145,7 +145,7 @@ sticker
 • ameme
 *Info*: Get random anime meme
 
-━━❰･Bot🎐Group･❱━━
+ ― ⌞ 🇬‌🇷‌🇴‌🇻‌🇵‌ ⌝ ―
 
 •profile 
 *Info*: Display user info
@@ -178,7 +178,7 @@ sticker
 *Info*: Get a trigger sticker
 
 
-━━❰･Bot🀄Media･❱━━
+― ⌞ 🇲‌🇪‌🇩‌🇮‌🇦‌ ⌝ ―
 
 •pinterest <keyword>
 *Info*: Get defined img from pinterest
@@ -198,7 +198,7 @@ sticker
 •spotify <keywords>
 *Info*: Download spotify songs
 
-━━❰･Bot🎎Reaction･❱━━
+ ― ⌞  🇷‌🇪‌🇦‌🇨‌🇹‌🇮‌🇴‌🇳‌ ⌝ ―
 
 •punch 
 *Info*: Get a punch sticker 
@@ -223,16 +223,8 @@ sticker
 
 •cry
 *Info*: Get a cry sticker
-  
+  
 *I hope you are enjoying the bot if you see any bug please report use by using !bug*
-
-
-
-
-
-
-
-
 `.trim(), m)
 }
 handler.help = ['menu', 'help','list', '?']

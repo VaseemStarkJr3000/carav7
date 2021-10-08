@@ -10,7 +10,7 @@ let handler = async (m, { conn, text, command, usedPrefix }) => {
   if (!url) throw '404 Not Found'
   conn.sendFile(m.chat, url, 'img', '', m, 0, { thumbnail: await (await fetch(url)).buffer() })
 }
-handler.help = ['gimage <search>', 'image <search>','img <search>']
+handler.help = ['gimage <search>', 'image <search>','goimg <search>']
 handler.tags = ['internet']
 handler.command = /^(g?image)$/i
 

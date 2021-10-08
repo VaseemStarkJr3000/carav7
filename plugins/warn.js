@@ -1,79 +1,27 @@
-let handler = async (m, { conn, text }) => {
-	function no(number){
-    return number.replace(/\s/g,'').replace(/([@+-])/g,'')
-  }
-
-  text = no(text)
-	
-  if(isNaN(text)) {
-		var number = text.split`@`[1]
-  } else if(!isNaN(text)) {
-		var number = text
-  }
-
-  if(!text && !m.quoted) return conn.reply(m.chat, `*Tag the user, write the number, or reply to the member you want to _warning_*`, m)
-  //let exists = await conn.isOnWhatsApp(number)
-  // if (exists) return conn.reply(m.chat, `*Nomor target tidak terdaftar di WhatsApp*`, m)
-  if(isNaN(number)) return conn.reply(m.chat, `*The number you entered is invalid !*`, m)
-  if(number.length > 15) return conn.reply(m.chat, `*The number you entered is invalid!*`, m)
-  try {
-		if(text) {
-			var user = number + '@s.whatsapp.net'
-		} else if(m.quoted.sender) {
-			var user = m.quoted.sender
-		} else if(m.mentionedJid) {
-  		  var user = number + '@s.whatsapp.net'
-			}  
-		} catch (e) {
-  } finally {
-
-	
-  if(typeof global.DATABASE.data.users[user] == 'undefined') {
-  global.DATABASE._data.users[user] = {
-			exp: 0,
-			limit: 10,
-			lastclaim: 0,
-			warning: 0,
-			command: 0,
-			job: "x",
-			price: 0,
-			chat: 0,
-			whitelist: false,
-			isBanned: false,
-			spam: 0
-		}
-	}
-
-	let groupMetadata = m.isGroup ? await conn.groupMetadata(m.chat) : {}
-  let participants = m.isGroup ? groupMetadata.participants : []
-	let users = m.isGroup ? participants.find(u => u.jid == user) : {}
-	let isAdmin = users.isAdmin || users.isSuperAdmin || false
-	let number = user.split('@')[0]
-
-	if(isAdmin) return conn.reply(m.chat, `*Can't give a warning to fellow admins !*`, m)
-  
-	
-	global.DATABASE.data.users[user].warning += 1
-	var warn = global.DATABASE.data.users[user].warning
- 	if(warn > 4) {
- 		conn.reply(m.chat, `*❏ WARNING*\n\nYou've been warned 5 times! Just kick it!`, null, {contextInfo: {
-          mentionedJid: [user]
- 	}}).then(() => {
- 		conn.groupRemove(m.chat, [user])
- 	})
- } else {
- 	conn.reply(m.chat, `*❏ WARNING*\n\n@${number} : [ ${warn} / 5 ]\n\nIf you get a warning up to 5 times, you will be automatically kicked !\n\nType *.delwarn* to delete the warning by paying the limit`, null, {contextInfo: {
-          mentionedJid: [user]
- 	}})
+let handler = async (m, { conn, args }) => {
+    if (!args || !args[0]) throw 'Siapa yang mau di Warn om?'
+    let mention = m.mentionedJid[0] || conn.parseMention(args[0]) || (args[0].replace(/[@.+-]/g, '').replace(' ', '') + '@s.whatsapp.net') || ''
+    if (!mention) throw 'Tag salah satu lah'
+    if (!(mention in global.DATABASE._data.users)) throw 'User tidak terdaftar dalam DATABASE!!'
+    let user = global.DATABASE._data.users[mention]
+    if (user.Banneduser) throw 'User telah terbanned!!'
+    if ((user.warn * 1) < 3) {
+        user.warn += 1
+        m.reply('berhasil Warn')
+        m.reply('Kamu di warn oleh OWNER Atau MODERATOR!!, dan sekarang kamu punya *' + (user.warn + 1) + '* WARN. Ingat Jika kamu mendapat warn 4 kali kamu akan otomatis ke banned', mention)
+    } else if ((user.warn * 1) > 2) {
+        let reason = (args.length > 0 || args[1] ? args.slice(1).join(' ') : '4 kali WARN') || '4 kali WARN'
+        user.Banneduser = true
+        user.BannedReason = reason
+        user.warn = 0
+        m.reply('*Dia sudah Terbanned, karena mendapatkan 4 warn*')
+        m.reply('*Kamu Terbanned karena telah mendapatkan 4 kali warn*\n *HUBUNGI* \n' + global.owner.map((v, i) => '*Owner ' + (i + 1) + ':* wa.me/' + v).join('\n') + '\n\n' + global.mods.map((v, i) => '*Moderator ' + (i + 1) + ':* wa.me/' + v).join('\n'), mention)
+    }
 }
 
- 
- }
-}
-handler.help = ['warn *(reply)*','warn *@tag*']
-handler.tags = ['admin']
-handler.command = /^warn$/i
-handler.admin = true
-handler.group = true
-handler.botAdmin = true
+handler.help = ['warn @mention']
+handler.tags = ['owner']
+handler.command = /^warn(user)?$/i
+handler.mods = true
+
 module.exports = handler

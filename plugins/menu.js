@@ -13,8 +13,17 @@ let handler  = async (m, { conn, usedPrefix }) => {
 •mod
 *Info*: Get the owner's number 
 
-•daily
-*Info*: Get xp 
+•slot <value>
+*Info*: Get a chance to win XP
+
+•pay @user <value>
+*Info*: Give XP to your poor friend
+
+•daily 
+*Info*: Claim your daily XP
+
+•levelup 
+*Info*: Level up yourself 
 
 •leaderbord
 *Info*: Show you the highest xp and level person 

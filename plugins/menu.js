@@ -5,8 +5,8 @@ let handler  = async (m, { conn, usedPrefix }) => {
 
 •prefix !
 
-Link-
-https://github.com/Nurutomo/wabot-aq
+Subscribe my channel plz 
+https://youtube.com/channel/UCIA_gt6ns4hu6k-WQOPRoNQ
 
 _If you want to add this bot in your group then contact him_
 Number: wa.me/919832361550

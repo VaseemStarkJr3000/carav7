@@ -16,11 +16,6 @@ let handler = async (m, { conn, args, participants }) => {
 │
 ${sortedExp.slice(0, len).map(({ jid, exp }, i) => `├ ${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${exp} Exp*`).join`\n`}
 └────
-┌〔 *Limit Leaderboard Top ${len}* 〕
-├ You: *${usersLim.indexOf(m.sender) + 1}* from *${usersLim.length}*
-│
-${sortedLim.slice(0, len).map(({ jid, limit }, i) => `├ ${i + 1}. ${participants.some(p => jid === p.jid) ? `(${conn.getName(jid)}) wa.me/` : '@'}${jid.split`@`[0]} *${limit} Limit*`).join`\n`}
-└────
 ┌〔 *Level Leaderboard Top ${len}* 〕
 ├ You: *${usersLevel.indexOf(m.sender) + 1}* from *${usersLevel.length}*
 │

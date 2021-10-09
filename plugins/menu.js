@@ -6,9 +6,10 @@ let handler  = async (m, { conn, usedPrefix }) => {
 •prefix !
 
 Link-
-https://github.com/Oreki-san/Eru-Bot
+https://github.com/Nurutomo/wabot-aq
 
-_This bot owned by quantum world admins_
+_If you want to add this bot in your group then contact him_
+Number: wa.me/919832361550
 
 ― ⌞ 🇧‌🇴‌🇹‌ ⌝ ―
 

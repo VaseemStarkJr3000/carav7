@@ -5,6 +5,11 @@ let handler  = async (m, { conn, usedPrefix }) => {
 
 •prefix !
 
+Link-
+https://github.com/Oreki-san/Eru-Bot
+
+_This bot owned by quantum world admins_
+
 ― ⌞ 🇧‌🇴‌🇹‌ ⌝ ―
 
 •help
@@ -99,7 +104,7 @@ sticker
 *Info*: Create two sentence into readmore form
 
 •calc <expression>
-*Info8 : Get answer of your expression
+*Info* : Get answer of your expression
 
 •enable/disable <function>
 *Info*: Enable antilink,welcome,autolevel,etc....

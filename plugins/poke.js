@@ -11,7 +11,7 @@ let animeingfo = `✨️ *Name:* ${title}
 ❤️ *Height:* ${height}
 💚️ *Weight:* ${weight}
 🌐️ *BaseExp*: ${baseExp}`
-  conn.sendFile(m.chat, image, '', animeingfo, m)
+  conn.sendFile(m.chat, image, animeingfo, m)
 }
 handler.help = ['poke <title>']
 handler.tags = ['poke']

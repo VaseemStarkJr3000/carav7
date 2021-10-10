@@ -1,35 +1,23 @@
-let fetch = require("node-fetch");
-let handler = async (m, { conn, command }) => {
-	if (m.quoted && m.quoted.sender) m.mentionedJid.push(m.quoted.sender);
-	if (!m.mentionedJid.length) m.mentionedJid.push(m.sender);
-	let res = await fetch(
-		API("https://some-random-api.ml", "/animu/" + command, {})
-	);
-	if (!res.ok) throw `${res.status} ${res.statusText}`;
-	let json = await res.json();
-	if (json.link)
-		conn.sendFile(
-			m.chat,
-			json.link,
-			"wibukontol.gif",
-			`@${m.sender.split("@")[0]} ${command} ${m.mentionedJid
-				.map((user) =>
-					user === m.sender ? "themselves " : `@${user.split("@")[0]}`
-				)
-				.join(", ")}`,
-			m,
-			false,
-			{
-				asGIF: true,
-				contextInfo: {
-					mentionedJid: [...m.mentionedJid, m.sender],
-				},
-			}
-		);
-	else throw json;
-};
-handler.help = ["hug", "pat", "wink", "slap", "kiss", "blush"];
-handler.tags = ["fun"];
-handler.command = /^(hug|pat|wink|kiss|slap|blush)$/i;
+let fetch = require("node-fetch")
+const { sticker } = require('../lib/sticker')
+const { MessageType } = require('@adiwajshing/baileys')
 
-module.exports = handler;
+let handler = async (m, { conn}) => {
+  try {
+  let res = await fetch('https://api.waifu.pics/sfw/hug')
+  let json = await res.json()
+  let { 
+url
+} = json
+let stiker = await sticker(null, url, 'hug', 'cara')
+  conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+    quoted: m
+  })
+ } catch (e) {
+  }
+}
+handler.help = ['kiss']
+handler.tags = ['expression']
+handler.command = /^hug/i
+
+module.exports = handler

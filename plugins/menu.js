@@ -11,7 +11,7 @@ https://youtube.com/channel/UCIA_gt6ns4hu6k-WQOPRoNQ
 _If you want to add this bot in your group then contact him_
 Number: wa.me/919832361550
 
-― ⌞ 🇧‌🇴‌🇹‌ ⌝ ―
+― ⌞ 🄱🄾🅃 ⌝ ―
 
 •help
 *Info*: Get the command list 
@@ -71,7 +71,7 @@ Number: wa.me/919832361550
 *Info*: Get the rules of the bot
 
 
-― ⌞ 🇻‌🇹‌🇮‌🇱‌🇸‌ ⌝ ―
+― ⌞ 🅄🅃🄸🄻🅂 ⌝ ―
 
 •sticker 
 *Info*: Convart img/vid in sticker 
@@ -128,7 +128,7 @@ sticker
 •weather <place> 
 *Info*: Get weather info of your place
 
-― ⌞ 🇦‌🇳‌🇮‌🇲‌🇪‌ ⌝ ―
+― ⌞ 🄰🄽🄸🄼🄴 ⌝ ―
 
 •waifu
 *Info*: Get random waifu image
@@ -160,7 +160,7 @@ sticker
 • ameme
 *Info*: Get random anime meme
 
- ― ⌞ 🇬‌🇷‌🇴‌🇻‌🇵‌ ⌝ ―
+― ⌞ 🄶🅁🄾🅄🄿 ⌝ ―
 
 •profile 
 *Info*: Display user info
@@ -193,7 +193,7 @@ sticker
 *Info*: Get a trigger sticker
 
 
-― ⌞ 🇲‌🇪‌🇩‌🇮‌🇦‌ ⌝ ―
+― ⌞ 🄼🄴🄳🄸🄰 ⌝ ―
 
 •pinterest <keyword>
 *Info*: Get defined img from pinterest
@@ -213,7 +213,7 @@ sticker
 •spotify <keywords>
 *Info*: Download spotify songs
 
- ― ⌞  🇷‌🇪‌🇦‌🇨‌🇹‌🇮‌🇴‌🇳‌ ⌝ ―
+― ⌞ 🅁🄴🄰🄲🅃🄸🄾🄽 ⌝ ―
 
 •punch 
 *Info*: Get a punch sticker 
@@ -230,9 +230,6 @@ sticker
 •pat
 *Info*: Get a pat sticker 
 
-•blush
-*Info*: Get a blush sticker
-
 •hug
 *Info*: Get a hug sticker
 
@@ -244,7 +241,7 @@ sticker
 }
 handler.help = ['menu', 'help','list', '?']
 handler.tags = ['main']
-handler.command = /^(menu|help|\?)$/i
+handler.command = /^(menu|help|cara|\?)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false

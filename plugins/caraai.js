@@ -13,7 +13,7 @@ if(!args[0]) throw " please provide any word or sentence"
         const response = axios.get(`https://api.brainshop.ai/get?bid=159811&key=S1IFzsWHWPjwi9ah&uid=[uid]&msg=${args[0]}`)
         const res = await response
         
-        const name = res.data.cnt
+        const name = data.cnt
         
 
         conn.reply(m.chat,`

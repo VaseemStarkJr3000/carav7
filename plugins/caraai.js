@@ -19,7 +19,7 @@ if(!args[0]) throw " please provide sentaince"
         conn.reply(m.chat,`
        ${cnt}
         `.trim(),m)
-    }catch((){
+    }catch(e){
 throw 'reply not found' 
 console.log(e)
 

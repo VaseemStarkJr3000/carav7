@@ -1,36 +1,29 @@
-const axios = require('axios')
+let axios = require("axios");
+let handler = async(m, { conn, text }) => {
 
+    if (!text) return conn.reply(m.chat, 'Masukan Namamu', m)
 
+	axios.get(`https://api.brainshop.ai/get?bid=159811&key=S1IFzsWHWPjwi9ah&uid=[uid]&msg=${text}`).then ((res) => {
+	 	let hasil = `Reply : ${res.data.cnt}`
 
-
-let handler = async (m, { conn, args  , usedPrefix, command })=>{
-
-
-if(!args[0]) throw " please provide any word or sentence"
-  
-    try{
-
-        const response = axios.get(`https://api.brainshop.ai/get?bid=159811&key=S1IFzsWHWPjwi9ah&uid=[uid]&msg=${args[0]}`)
-        const res = await response
-        
-        const name = data.cnt
-        
-
-        conn.reply(m.chat,`
-        🌸 BOT: ${name} `.trim(),m)
-    }catch(e){
-throw 'Reply not found' 
-console.log(e)
-
-    }
-
-
-
-
+    conn.reply(m.chat, hasil, m)
+	})
 }
+handler.help = ['cara'].map(v => v + ' <nama>')
+handler.tags = ['tools']
+handler.command = /^(cara)$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+handler.register = true
 
-handler.help = ['cara']
-handler.tags = ['internet']
-handler.command = /^(cara|bot)$/i
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
+handler.exp = 0
+handler.limit = false
 
 module.exports = handler

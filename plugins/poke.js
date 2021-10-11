@@ -1,20 +1,27 @@
 let fetch = require('node-fetch')
-let handler = async(m, { conn, text }) => {
-  if (!text) throw `Enter a query!`
-  let res = await fetch(global.API('http://zekais-api.herokuapp.com/pokemon?query={ q: text }))
-  if (!res.ok) throw await res.text()
+let handler = async (m, { conn, args }) => {
+   response = args.join(' ')
+  if (!args[0]) throw 'Masukkan Parameter'
+  m.reply('Sedang Diproses...')
+  let res = await fetch(`http://zekais-api.herokuapp.com/pokemon?query=${response}`)
   let json = await res.json()
-  let { title, gender, species, baseExp, height, weight, image } = json.results[0]
-let animeingfo = `✨️ *Name:* ${title}
-🎆️ *Species:* ${species}
-💌️ *Gender:* ${gender}
-❤️ *Height:* ${height}
-💚️ *Weight:* ${weight}
-🌐️ *BaseExp*: ${baseExp}`
-  conn.sendFile(m.chat, image, animeingfo, m)
+  conn.sendFile(m.chat, json.result.image, 'pokemon.jpg', `Nih kak`, m, false)
 }
-handler.help = ['poke <title>']
-handler.tags = ['poke']
-handler.command = /^(poke|pokemon)$/i
-//maapin fatur :<
-module.exports = handler
+handler.help = ['poke'].map(v => v + ' <teks>')
+handler.tags = ['maker']
+handler.command = /^(poke)$/i
+handler.owner = false
+handler.mods = false
+handler.premium = false
+handler.group = false
+handler.private = false
+handler.register = true
+
+handler.admin = false
+handler.botAdmin = false
+
+handler.fail = null
+handler.exp = 0
+handler.limit = true
+
+module.exports = 

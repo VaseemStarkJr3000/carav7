@@ -5,7 +5,7 @@ let handler = async (m, { conn, args }) => {
   m.reply('Sedang Diproses...')
   let res = await fetch(`http://zekais-api.herokuapp.com/pokemon?query=${response}`)
   let json = await res.json()
-  conn.sendFile(m.chat, json.result.image, 'pokemon.jpg', `Nih kak`, m, false)
+  conn.sendFile(m.chat, json.result.image, 'pokemon.jpg', `*Here we go*`, m, false)
 }
 handler.help = ['poke'].map(v => v + ' <teks>')
 handler.tags = ['maker']

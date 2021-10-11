@@ -6,7 +6,7 @@ const axios = require('axios')
 let handler = async (m, { conn, args  , usedPrefix, command })=>{
 
 
-if(!args[0]) throw " please provide place or location name"
+if(!args[0]) throw " please provide sentaince"
   
     try{
 
@@ -14,20 +14,13 @@ if(!args[0]) throw " please provide place or location name"
         const res = await response
         
         const name = res.data.cnt
-        const Country = res.data.sys.country
-        const Weather= res.data.weather[0].description
-        const Temperature = res.data.main.temp + '°C'
-        const Minimum_Temperature= res.data.main.temp_min + '°C'
-        const Maximum_Temperature= res.data.main.temp_max + '°C'
-        const Humidity= res.data.main.humidity + '%'
-        const Wind= res.data.wind.speed + 'km/h'
-        
+ 
 
         conn.reply(m.chat,`
-        🌸 Place: ${name}\n💮 Country: ${cnt}\n🌈 Weather: ${Weather}\n🎋 Temperature: ${Temperature}\n💠 Minimum Temperature: ${Minimum_Temperature}\n📛 Maximum Temperature: ${Maximum_Temperature}\n💦 Humidity: ${Humidity}\n🎐 Wind: ${Wind}
+       ${cnt}
         `.trim(),m)
     }catch(e){
-throw 'location not found' 
+throw 'reply not found' 
 console.log(e)
 
     }

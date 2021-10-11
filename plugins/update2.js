@@ -4,8 +4,8 @@ const { promisify } = require('util')
 const { join } = require('path')
 
 let confirmation = {}
-let repository = 'SudoAnirudh/_EVA_'
-let branch = 'master'
+let repository = 'iamherok/carav7'
+let branch = 'main'
 
 async function handler(m, { text }) {
     let res = await fetch(`https://raw.githubusercontent.com/${repository}/${branch}/${text}`)
@@ -48,9 +48,9 @@ handler.all = async m => {
 }
 
 handler.rowner = true
-handler.help = ['update2']
+handler.help = ['up']
 handler.tags = ['host']
-handler.command = ['update2']
+handler.command = ['up']
 
 handler.rowner = true
 

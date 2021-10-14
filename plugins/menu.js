@@ -8,8 +8,6 @@ Link - https://youtube.com/channel/UCIA_gt6ns4hu6k-WQOPRoNQ
 
 ⚠️ _If you want to add me or join the official group  then contact my owner http://wa.me/919832361550_
 
-👋 *Hello*, *I am Cara I am here to help you* 💐
-
 •prefix !
 
 *― ⌞ 🄱🄾🅃 ⌝ ―*
@@ -160,6 +158,9 @@ sticker
 
 • ameme
 *Info*: Get random anime meme
+
+•pokemon [name]
+*Info* : get info about pokemon
 
 *― ⌞ 🄶🅁🄾🅄🄿 ⌝ ―*
 

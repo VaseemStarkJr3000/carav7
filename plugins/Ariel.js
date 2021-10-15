@@ -1,12 +1,13 @@
-let handler = async (m, { conn, text }) => {
-    let name = m.fromMe ? conn.user : conn.contacts[m.sender]
-
-  conn.reply(m.chat, `
-This person wants to be kicked
-`.trim(), m)
-    let mentionedJid = [m.sender]
+let fetch = require('node-fetch')
+let handler = async(m, { conn }) => {
+  let res = await fetch('https://meme-api.herokuapp.com/gimme/wholesomeanimemes')
+  if (!res.ok) throw await res.text()
+  let json = await res.json()
+  if (!json.url) throw 'Error!'
+  conn.sendFile(m.chat, json.url, '', '*Here is your Animememe*', m)
 }
-handler.customPrefix = /@919539102851/i
-handler.command = new RegExp
-
+handler.help = ['ameme']
+handler.tags = ['internet']
+handler.command = /^(ameme)$/i
+//MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS
 module.exports = handler

@@ -138,6 +138,9 @@ sticker
 •ameme 
 *Info*: Get random anime meme
 
+•mp
+*Info*: Get random manga meme
+
 •anime <name>
 *Info*: Get info about anime 
 
